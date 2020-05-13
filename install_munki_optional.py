@@ -1,9 +1,12 @@
 #!/usr/local/munki/Python.framework/Versions/Current/bin/python3
 
 '''
-To be called from Jamf Self-Service policy to mark a Munki optional install
-for installation and then launch up Managed Software Center, so the user
-can see what's going on
+Script to be called from Jamf Self-Service policy to mark a Munki optional
+install for installation and then launch up Managed Software Center, so
+the user can see what's going on.
+
+For Parameter 4 in the Jamf policy, put in the name of the Munki item.
+Make sure to use the actual Munki item name, not the display name.
 '''
 
 import os
@@ -12,9 +15,11 @@ import subprocess
 import sys
 
 def main():
-    # Munki item to add (fill in the name of the Munki item, not necessarily the display name)
-    # Don't just leave this as literally NAMEOFMUNKIITEMTOADD
-    item_to_add = 'NAMEOFMUNKIITEMTOADD'
+    try:
+        item_to_add = sys.argv[4]
+    except:
+        print("ERROR: No argument provided for item to add")
+        sys.exit(1)
 
     # Users to ignore
     ignored_users = [ 'root', '', '_mbsetupuser' ]
