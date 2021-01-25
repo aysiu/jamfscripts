@@ -1,4 +1,4 @@
-#!/usr/local/munki/Python.framework/Versions/Current/bin/python3
+#!/usr/local/munki/munki-python
 
 '''
 Script to be called from Jamf Self-Service policy to mark a Munki optional
