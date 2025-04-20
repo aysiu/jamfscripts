@@ -36,7 +36,7 @@ else
 		if [[ $last_epoch -lt $date_threshold ]]; then
 			errors="Last Munki run was $last_run"
 		else
-			echo "Last Munki run was $last_epoch and threshold was $date_threshold"
+			echo "Last Munki run was $last_run"
 		fi
 	fi
 fi
